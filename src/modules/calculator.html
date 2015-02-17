@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+		<title>InstantFox</title>
+		<link rel="stylesheet" href="style.css">
+    </head>
+ 
+	<body>
+		<div id="container"></div>
+	</body>
+  	<script type='text/javascript'><!--
+function setTitle(x)window.title=x
+function $(id)document.getElementById(id)
+function setContent(h)$('container').innerHTML=h
+
+calculator = {
+  // Accepted Chars
+  scope: "0123456789.+-*/%(, )",
+  
+  script: function(query) {
+	var input = this.parse(query);
+	if (input) {
+	  try {
+		// .. Calculate ..
+		var result = eval('('+input+')');		
+		
+		var s = result.toString();
+        if(s.indexOf('.') != -1 && s.indexOf('e') == -1) {
+          result = Math.round(result * 10000000000000) / 10000000000000;
+        }
+        result = result.toString();
+		
+	  } catch(ex) {
+	    result = ''
+	  }
+	  if (result == input) {
+		  result = 'error'
+	  }
+	  setContent('\<div class="env calculator">'+input+' = \<span class="result">'+result+'\<\/span>\<\/div>');
+	  setTitle(input+' = '+result);
+	}
+  },
+
+  parse: function(vlr){
+	try {
+	  if (vlr.length>0) {
+		for(var i=0;i<vlr.length;i++) {
+		  if (this.scope.indexOf(vlr.charAt(i)) < 0) {
+			setContent('\<div class="env calculator">Unkown operation.\<br \/>Available operators: '+this.scope+'\<\/div>');
+			return null;
+		  }
+		};
+		return vlr;
+	  } else {
+		setContent('\<div class="env calculator">Welcome to InstantFox Calculator\<\/div>');
+	  }
+	} catch(ex) {
+      setContent('\<div class="env calculator">Unkown operation.:(\<\/div>');
+
+	  return null;
+	}
+  }
+}
+window.onhashchange=function(){
+	calculator.script(location.hash.substr(1))
+}
+window.onhashchange()
+
+	 --></script>
+</html>
