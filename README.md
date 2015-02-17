@@ -1,3 +1,7 @@
+**Found the official Instantfox repo at estivo/Instantfox. Forked at Elusive138/Instantfox and renamed the old one to Elusive138/InstantFox-old. Please go to the proper fork of the official repo.**
+
+---
+
 # InstantFox
 A fork of InstantFox with some bugfixes. **This is not the official repo**
 
