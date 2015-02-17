@@ -925,8 +925,8 @@ InstantFox.handleCommand_ = function(aTriggeringEvent) {
     let lastLocationChange = gBrowser.selectedBrowser.lastLocationChange;
 
     let matchLastLocationChange = true;
-    if (action) {
-        url = action.param;
+    if (action && action.params) {
+        url = action.params.url;
         if (this.hasAttribute("actiontype")) {
             if (action.type == "switchtab") {
                 this.handleRevert();
