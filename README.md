@@ -12,5 +12,6 @@ Due to the lack of a public source repository, this repository has been created 
 ###Versions
 
 * [**2.9.11elupatch1**](https://github.com/Elusive138/InstantFox/releases/tag/v2.9.11elupatch1): Fixes switch-to-tab bug in FF 35 (issue #1). 
+* [**2.9.11.elupatch2**](https://github.com/Elusive138/InstantFox/releases/tag/v2.9.11.elupatch2): Fixes version number so official 2.9.11 does not automatically update over the patched version.
 
 Install at your own risk. This might break normal updates, so you should check the official Mozilla Addons page periodically.
